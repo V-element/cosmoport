@@ -1,15 +1,35 @@
 package com.space.model;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "ship")
 public class Ship {
+
+    @Id
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
     private String name,planet;
     private ShipType shipType;
     private Date prodDate;
-    private boolean isUsed;
+    private Boolean isUsed;
     private Double speed, rating;
     private Integer crewSize;
+
+    public Ship(String name, String planet, ShipType shipType, Date prodDate, Boolean isUsed, Double speed, Double rating, Integer crewSize) {
+        this.name = name;
+        this.planet = planet;
+        this.shipType = shipType;
+        this.prodDate = prodDate;
+        this.isUsed = isUsed;
+        this.speed = speed;
+        this.rating = rating;
+        this.crewSize = crewSize;
+    }
+
+    public Ship() {
+    }
 
     public Long getId() {
         return id;
