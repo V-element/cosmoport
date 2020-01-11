@@ -126,7 +126,9 @@ public class ShipController {
         } else if (name == null && planet == null && isUsed == null &&
                 minCrewSize == null && maxCrewSize == null && minSpeed == null && maxSpeed == null && minRating == null &&
                 maxRating == null) {
-            return shipService.getAllShipsCount(shipType, new Date(after), new Date(before));
+            Calendar calendarAfter = getCalendarAndSetBeginningOfYear(after);
+            Calendar calendarBefore = getCalendarAndSetBeginningOfYear(before);
+            return shipService.getAllShipsCount(shipType, calendarAfter.getTime(), new Date(calendarBefore.getTime().getTime() - 1));
         } else if (name == null && planet == null && after == null && before == null && isUsed == null &&
                 minCrewSize == null && maxCrewSize == null && minRating == null &&
                 maxRating == null) {
