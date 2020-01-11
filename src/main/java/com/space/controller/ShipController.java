@@ -92,7 +92,7 @@ public class ShipController {
     }
 
     private Calendar getCalendarAndSetBeginningOfYear(Long date) {
-        Calendar calendar = new GregorianCalendar(new Date(date).getYear() + 1900, Calendar.JANUARY, 1);
+        Calendar calendar = new GregorianCalendar(new Date(date == null ? 0L : date).getYear() + 1900, Calendar.JANUARY, 1);
         calendar.set(Calendar.HOUR, 0);
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
